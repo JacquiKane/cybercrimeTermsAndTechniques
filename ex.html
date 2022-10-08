@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="modalstyle.css">
+</head>
+<body>
+    <h2>Modal Example</h2>
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn1">Open Modal</button>
+<button id="myBtn2">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal1" class="modal"> 
+     <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+
+  <div id="myModal2" class="modal"> 
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+</body>
+<script>
+    // Get the modals ready
+let arrayOfModalIds = [
+  ["myModal1", "myBtn1"], 
+  ["myModal2", "myBtn2"]
+];
+//alert(arrayOfModalIds[0][0]);
+arrayOfModalIds.forEach (setupModal);
+
+// var modal = document.getElementById(arrayOfModalIds[0][0]);
+
+// Get the button that opens the modal
+//var btn = document.getElementById(arrayOfModalIds[0][1]);
+//setupModal(modal, btn);
+
+var currentOpenModal;
+
+function setupModal(idPair) {
+
+    alert("setting up modal for " + idPair[0] + " and " + idPair[1]);
+let btn = idPair[1];
+let modal = idPair[0];
+
+
+    // Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+let btnId = `#${btn}`;
+let btnObj = document.querySelector(btnId);
+
+let modalId = `#${modal}`;
+let modalObj = document.querySelector(modalId);
+// When the user clicks the button, open the modal 
+btnObj.onclick = function() {
+    alert("setting click hander for " + modal + " and " + btn);
+  modalObj.style.display = "block";
+  alert("setting currentObj to " + modalObj.id)
+  currentOpenModal = modalObj;
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modalObj.style.display = "none";
+ // currentOpenModal = null;
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    alert("event target id is " + event.target.id);
+    alert("check on current open modal : " + currentOpenModal + " with id of " + currentOpenModal.id);
+  if (event.target == currentOpenModal) {
+    currentOpenModal.style.display = "none";
+  }
+}
+}
+</script>
+</html>

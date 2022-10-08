@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*
+
+    Have the user input their bill.
+    Calculate the taxed bill, which is the inputted bill plus tax. Tax is 7%.
+    Calculate the tip from the taxed bill. The tip is 5% of the taxed bill.
+    Calculate the final bill total, which is the taxed bill plus the tip value.
+    Output the final bill total.
+
+*/ 
+
+let bookNum = 4;
+        switch (bookNum) {
+            case 4:
+                console.log("Fizz");
+            case 5:
+                console.log("Buzz");
+                break;
+            case 6:
+                console.log("Pop");
+                break;
+            default:
+                console.log("...");
+                break;
+        }
+
+let index = 18;
+        let indicator = 3 + (index / 4) - (index % 4) / 2;
+        alert(indicator);
+        if (indicator > 4) {
+            console.log("Level A");
+        }
+        else {
+            console.log("Level B");
+        }
+
+let billAmount = prompt("Amount");
+billAmount = parseFloat(billAmount); 
+billAmount += billAmount*0.07;
+let tipAmount = billAmount * 0.05;
+
+alert(`Pay your bill of ${billAmount.toFixed(2)} and tip of ${tipAmount.toFixed(2)}`);
+    let mysteryNumber = 11;
+let x = ++mysteryNumber - 3;
+x *= mysteryNumber++ + 4;
+alert(`x is ${x} and mys is ${mysteryNumber}` );
+
+
+
+let jobCount = 10;
+jobCount += jobCount + 11;
+jobCount -= 3;
+jobCount = jobCount * 3;
+jobCount *= 2;
+jobCount = jobCount + 2;
+jobCount = jobCount / 5;
+alert(jobCount);
+    </script>
+</body>
+</html>
